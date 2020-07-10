@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+.env
+.pytest_cache/
+__pycache__/
+local.py
+*.pyc
+
+*.sqlite3
