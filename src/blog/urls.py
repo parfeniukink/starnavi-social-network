@@ -11,8 +11,14 @@ from .views import (
 app_name = 'blog'
 
 urlpatterns = [
-    path("articles/",
-         ArticleCreateAPIView.as_view(), name="article_create"),
-    path("articles/<int:article_id>/like/",
-         LikeAPIView.as_view(), name="article_like"),
+    path(
+        "articles/",
+        ArticleCreateAPIView.as_view(),
+        name="article_create"
+    ),
+    path(
+        "articles/<int:article_id>/like/",
+        LikeAPIView.as_view(),
+        name="article_like"
+    ),
 ]
