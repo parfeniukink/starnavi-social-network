@@ -1,10 +1,14 @@
+from django.conf.urls import url
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import ArticleAPIViewSet, LikeAPIView
+from .views import (
+    ArticleAPIViewSet,
+    LikeAPIView
+)
+
 
 app_name = 'blog'
-
 
 urlpatterns = [
     path("articles/<int:article_id>/like/",

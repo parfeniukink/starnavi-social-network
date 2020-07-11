@@ -28,7 +28,6 @@ class LikeAPIView(APIView):
         """Commit or delete from DB user's post like"""
 
         data = {}
-        user = request.user.id
 
         data['user'] = user
         data['article'] = article_id

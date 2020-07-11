@@ -26,7 +26,8 @@ INSTALLED_APPS = [
 
     # Local
     'accounts.apps.AccountsConfig',
-    'blog.apps.BlogConfig'
+    'blog.apps.BlogConfig',
+    'analitics.apps.AnaliticsConfig',
 
 ]
 
@@ -38,6 +39,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Local
+    'accounts.middleware.SetLastVisitMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -92,6 +96,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -126,7 +132,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,

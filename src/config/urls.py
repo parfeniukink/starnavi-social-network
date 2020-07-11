@@ -7,5 +7,6 @@ urlpatterns = [
 
     # Local
     path("api/v1/auth/", include('accounts.urls')),
-    path("api/v1/", include('blog.urls'))
+    path("api/v1/", include('blog.urls')),
+    path("api/v1/analitics/", include('analitics.urls'))
 ]
