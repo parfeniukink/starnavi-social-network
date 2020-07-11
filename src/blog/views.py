@@ -24,13 +24,13 @@ class LikeAPIView(APIView):
     permission_classes = [IsAuthenticated, ]
     http_method_names = ['post', ]
 
-    def post(self, request, article_id: int) -> Response:
+    def post(self, request) -> Response:
         """Commit or delete from DB user's post like"""
 
         data = {}
 
         data['user'] = request.user.id
-        data['article'] = article_id
+        data['article'] = request.data['article_id']
 
         serializer = LikeSerializer(data=data)
 

@@ -17,7 +17,7 @@ urlpatterns = [
         name="article_create"
     ),
     path(
-        "articles/<int:article_id>/like/",
+        "articles/like/",
         LikeAPIView.as_view(),
         name="article_like"
     ),

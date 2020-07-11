@@ -16,9 +16,6 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 class LikeSerializer(serializers.ModelSerializer):
     """Like model serializer"""
-    # user = serializers.HiddenField(
-    #     default=serializers.CurrentUserDefault()
-    # )
 
     class Meta:
         model = Like
@@ -32,10 +29,10 @@ class LikeSerializer(serializers.ModelSerializer):
 
         like = Like.objects.filter(article__id=article_id, user__id=user_id)
 
-        if not like:
+        if like:
+            like.delete()
+        else:
             Like.objects.create(
                 user_id=user_id,
                 article_id=article_id
             )
-        else:
-            like.delete()
