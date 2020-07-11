@@ -10,8 +10,8 @@ from .models import Article, Like
 from .serializers import ArticleSerializer, LikeSerializer
 
 
-class ArticleCreateAPIView(ListCreateAPIView):
-    """Article CreateAPIView"""
+class ArticleListCreateAPIView(ListCreateAPIView):
+    """Article ListCreateAPIView"""
 
     permission_classes = [IsAuthenticated, ]
     serializer_class = ArticleSerializer
