@@ -13,7 +13,7 @@ class LikeActivityAPIView(APIView):
 
     def get(self, request) -> Response:
         """Returns quantity of likes by date"""
-        print(request.user)
+
         date_from = request.GET.get('date_from')
         date_to = request.GET.get('date_to')
 
