@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -10,8 +10,8 @@ from .models import Article, Like
 from .serializers import ArticleSerializer, LikeSerializer
 
 
-class ArticleAPIViewSet(ModelViewSet):
-    """Article ViewSet for POST, PUT, GET, DELETE"""
+class ArticleCreateAPIView(ListCreateAPIView):
+    """Article CreateAPIView"""
 
     permission_classes = [IsAuthenticated, ]
     serializer_class = ArticleSerializer

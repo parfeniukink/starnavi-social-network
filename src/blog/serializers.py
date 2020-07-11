@@ -5,6 +5,9 @@ from .models import Article, Like
 
 class ArticleSerializer(serializers.ModelSerializer):
     """Article model serializer"""
+    author = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
 
     class Meta:
         model = Article
