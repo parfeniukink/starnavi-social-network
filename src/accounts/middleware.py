@@ -5,7 +5,7 @@ from rest_framework_simplejwt import authentication
 
 
 class SetLastVisitMiddleware:
-    """Set last_visit and last_login firlds to User on request"""
+    """Set last_visit and last_login fields to User on request"""
 
     def __init__(self, get_response):
         self.get_response = get_response
