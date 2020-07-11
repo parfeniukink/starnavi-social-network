@@ -29,7 +29,7 @@ class LikeAPIView(APIView):
 
         data = {}
 
-        data['user'] = user
+        data['user'] = request.user.id
         data['article'] = article_id
 
         serializer = LikeSerializer(data=data)

@@ -16,6 +16,9 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 class LikeSerializer(serializers.ModelSerializer):
     """Like model serializer"""
+    # user = serializers.HiddenField(
+    #     default=serializers.CurrentUserDefault()
+    # )
 
     class Meta:
         model = Like
