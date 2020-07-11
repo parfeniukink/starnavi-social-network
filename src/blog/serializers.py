@@ -24,8 +24,8 @@ class LikeSerializer(serializers.ModelSerializer):
     def save_or_delete(self):
         """Save if like not in DB or delete if exist"""
 
-        user_id = self.data['user']
-        article_id = self.data['article']
+        user_id = self.data['user_id']
+        article_id = self.data['article_id']
 
         like = Like.objects.filter(article__id=article_id, user__id=user_id)
 
