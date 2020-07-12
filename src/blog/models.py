@@ -1,12 +1,13 @@
-from django.contrib.auth import get_user_model
 from django.db import models
+
+from config.settings.settings import AUTH_USER_MODEL
 
 
 class Article(models.Model):
     """Article model"""
 
     author = models.ForeignKey(
-        get_user_model(),
+        AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='articles'
     )
@@ -24,7 +25,7 @@ class Like(models.Model):
     """Article like model"""
 
     user = models.ForeignKey(
-        get_user_model(),
+        AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
     article = models.ForeignKey(
