@@ -1,13 +1,12 @@
+from django.conf import settings
 from django.db import models
-
-from config.settings.settings import AUTH_USER_MODEL
 
 
 class Article(models.Model):
     """Article model"""
 
     author = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='articles'
     )
@@ -25,7 +24,7 @@ class Like(models.Model):
     """Article like model"""
 
     user = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
     article = models.ForeignKey(
